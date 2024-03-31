@@ -36,12 +36,12 @@ class Wrapper extends StatelessWidget {
               clientId: 'Your-client-id'
             ),
           ],
-          headerBuilder: (context, constraints, _) {
-            return const CircleAvatar(
-              radius: 75,
-              backgroundImage: AssetImage('assets/images/logos/mixed-logo.png'),
-            );
-          },
+            headerBuilder: (context, constraints, _) {
+              return const CircleAvatar(
+                radius: 75,
+                backgroundImage: AssetImage('assets/images/logos/mixed-logo.png'),
+              );
+            },
             subtitleBuilder: (context, action) {
               return Padding(
                 padding: const EdgeInsets.only(top: 10, bottom: 50),
@@ -61,16 +61,16 @@ class Wrapper extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 30),
-                      child: Container(
-                        // color: Colors.purple,
-                        child: RaisedButton(
-                          color: Colors.purple,
-                          onPressed: _signInAnonymously,
-                          child: Text(
-                            "Sign In Anonymously",
-                            style: TextStyle(
-                              color: Colors.white
-                            ),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.purple,
+                          foregroundColor: Colors.white,
+                        ),
+                        onPressed: _signInAnonymously,
+                        child: Text(
+                          "Sign In Anonymously",
+                          style: TextStyle(
+                            color: Colors.white
                           ),
                         ),
                       ),
@@ -80,8 +80,8 @@ class Wrapper extends StatelessWidget {
               );
             },
             footerBuilder: (context, action) {
-              return const Padding(
-                padding: EdgeInsets.symmetric(vertical: 30.0, horizontal: 8.0),
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 30.0, horizontal: 8.0),
                 child: Text(
                   "By signing in, you agree to our Terms & Conditions",
                   textAlign: TextAlign.center,
@@ -96,4 +96,3 @@ class Wrapper extends StatelessWidget {
     );
   }
 }
-

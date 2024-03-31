@@ -13,7 +13,6 @@ class OrgCard extends StatelessWidget {
     String country = ngo.country!;
     String location = ngo.location!;
     String description = ngo.description!;
-    String website = ngo.website!;
     String telephone = ngo.telephone!;
     String email = ngo.email!;
     List votes = ngo.votes!;
@@ -121,15 +120,17 @@ class OrgCard extends StatelessWidget {
           children: <Widget>[
             Text("${votes[0]} votes"),
             const Spacer(),
-            FlatButton.icon(
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(15.0))),
-              padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),
-              color: Colors.purple,
-              textColor: Colors.white,
+            TextButton.icon(
+              style: TextButton.styleFrom(
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(15.0))),
+                padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),
+                backgroundColor: Colors.purple,
+                foregroundColor: Colors.white,
+              ),
               onPressed: _launchURL,
-              label: const Text("Visit Site"),
               icon: const Icon(Icons.arrow_circle_right),
+              label: const Text("Visit Site"),
             ),
           ],
         ),

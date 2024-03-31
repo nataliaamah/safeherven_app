@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutterfire_ui/auth.dart';
 import 'package:safeherven_app/screens/settings/settings.dart';
 
-class SafeHervenAppBar extends StatelessWidget with PreferredSizeWidget {
-
-  @override
-  final Size preferredSize;
-
+class SafeHervenAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final bool isHome;
 
-  SafeHervenAppBar(
-      this.title, { Key? key, required this.isHome,}) :
-        preferredSize = const Size.fromHeight(50.0),
-        super(key: key);
+  const SafeHervenAppBar(this.title, {Key? key, required this.isHome})
+      : super(key: key);
 
+  @override
+  Size get preferredSize => const Size.fromHeight(50.0);
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +17,11 @@ class SafeHervenAppBar extends StatelessWidget with PreferredSizeWidget {
       centerTitle: isHome == false ? false : true,
       title: isHome == false
           ? Text(title)
-          : IconButton(
-              onPressed: null,
-              icon: Image.asset('assets/images/logos/white.png'),
-              iconSize: 50,
+          : Image.asset(
+              'assets/images/logos/white.png',
+              height: 50,
             ),
       actions: <Widget>[
-
         IconButton(
           icon: const Icon(
             Icons.notifications,
@@ -40,7 +33,8 @@ class SafeHervenAppBar extends StatelessWidget with PreferredSizeWidget {
           data: Theme.of(context).copyWith(
             dividerColor: Colors.white,
             iconTheme: const IconThemeData(color: Colors.white)
-          ), child: PopupMenuButton<int>(
+          ),
+          child: PopupMenuButton<int>(
             color: Colors.purple,
             onSelected: (item) => onSelected(context, item),
             itemBuilder: (context) => [
@@ -72,14 +66,6 @@ class SafeHervenAppBar extends StatelessWidget with PreferredSizeWidget {
             ]
           ),
         ),
-
-        // IconButton(
-        //   icon: const Icon(
-        //     Icons.settings,
-        //     color: Colors.white,
-        //   ),
-        //   onPressed: () {},
-        // ),
       ],
     );
   }
@@ -102,4 +88,3 @@ class SafeHervenAppBar extends StatelessWidget with PreferredSizeWidget {
     }
   }
 }
-

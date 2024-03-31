@@ -4,7 +4,6 @@ import 'package:flutterfire_ui/auth.dart';
 import 'package:safeherven_app/screens/chat.dart';
 import 'package:safeherven_app/screens/help.dart';
 import 'package:safeherven_app/screens/places.dart';
-import 'package:safeherven_app/screens/alert.dart';
 import 'package:safeherven_app/screens/home.dart';
 
 
